@@ -76,7 +76,7 @@ jobs:
       - name: run unit test 'Single'
         if: ${{ steps.check_changes.outputs.docs_only != 'true' }}
         run: |
-          mvn install -Pcore-modules,-main
+          mvn -B -ntp install -Pcore-modules,-main -DskipTests
           mvn -B -ntp -fn -pl pulsar-broker test -Dtest=AdminApiTest
 
       - name: print JVM thread dumps when cancelled

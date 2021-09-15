@@ -1776,7 +1776,7 @@ public class ManagedLedgerTest extends MockedBookKeeperTestCase {
         
         // dontCatchUncaughtExceptions().atMost(10, TimeUnit.SECONDS).
             
-        Awaitility.await().untilAsserted(()-> {
+        Awaitility.await().pollInterval(1, TimeUnit.MILLISECONDS).pollDelay(0, TimeUnit.MILLISECONDS).untilAsserted(()-> {
             ledger.addEntry("data".getBytes());
             ledger.addEntry("data".getBytes());
             assertEquals(ledger.getLedgersInfoAsList().size(), 2);

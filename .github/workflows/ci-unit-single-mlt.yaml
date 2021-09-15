@@ -74,7 +74,7 @@ jobs:
 
       - name: run unit test 'Single'
         if: ${{ steps.check_changes.outputs.docs_only != 'true' }}
-        run: mvn -B -ntp -fn -pl managed-ledger compile test -Dtest=ManagedLedgerTest#testMaximumRolloverTime,ManagedLedgerTest#testMinimumRolloverTime
+        run: mvn -B -ntp -fn -pl managed-ledger compile test -Dtest=ManagedLedgerTest#testMinimumRolloverTime,ManagedLedgerTest#testMaximumRolloverTime
 
       - name: print JVM thread dumps when cancelled
         if: cancelled()
